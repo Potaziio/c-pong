@@ -19,14 +19,22 @@ Follow build instructions of each library to build it properly for your system.
 Tested build method on OSX/Linux: 
 
 GLFW:
+
     go into include/GLFW
+
     make 'build' directory and cd into it
+
     do cmake .. and then make
+
     should end up with a src folder with the library 
+
     done.
 GLEW:
+
     go into include/GL
+
     run make
+
     done.
 
 ## Installation
