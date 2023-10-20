@@ -33,7 +33,13 @@ Create a 'build' directory on the root of the project, run 'make' while in the r
 ### Prerequisites
 
 glfw: https://github.com/glfw/glfw
+
+
 glew: https://github.com/edoren/glew
+
+
 cglm: https://github.com/recp/cglm
+
+
 stb: https://github.com/nothings/stb
 
