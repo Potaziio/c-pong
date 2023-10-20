@@ -37,6 +37,8 @@ GLEW:
 
     done.
 
+    Note that if you run into a permission denied error when running make, you can try follow this 'http://jrxie.blogspot.com/2014/02/glew-binsh-configconfigguess-permission.html'
+
 ## Installation
 
 Create a 'build' directory on the root of the project, run 'make' while in the root project, app binary should be created in 'build', **go into 'build' and run 'app' from there**
