@@ -1,7 +1,7 @@
 #include "renderer.h"
 #include "shapes/renderer_shapes.h"
 
-extern struct shader* _renderer_default_rect_shader;
+struct shader* _renderer_default_rect_shader;
 
 int renderer_init(void)
 {

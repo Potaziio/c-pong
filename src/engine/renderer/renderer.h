@@ -16,7 +16,7 @@
 #include "../../../include/cglm/include/cglm/mat4.h"
 #include "../../../include/cglm/include/cglm/vec3.h"
 
-struct shader* _renderer_default_rect_shader; 
+extern struct shader* _renderer_default_rect_shader; 
 
 // Compiles shaders for drawing
 int renderer_init(void);
