@@ -12,7 +12,10 @@ It is meant to be a test of the framework
 ## Getting Started
 
 GLFW and GLEW build libraries are required for this program to run, the Makefile looks for those under: include/GLFW/build/src/libglfw3.a and include/GL/lib/libGLEW.a
+
 Follow build instructions of each library to build it properly for your system.
+
+
 Tested build method on OSX/Linux: 
 
 GLFW:
