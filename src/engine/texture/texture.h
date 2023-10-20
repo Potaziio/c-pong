@@ -3,7 +3,7 @@
 
 #include "../../../include/stb_image/stb_image.h"
 #include "../../../include/stb_image/stb_image_write.h"
-#include "../../../include/stb_image/stb_image_resize.h"
+#include "../../../include/stb_image/stb_image_resize2.h"
 
 #define GLFW_INCLUDE_NONE
 #include "../../../include/GLFW/include/GLFW/glfw3.h"
