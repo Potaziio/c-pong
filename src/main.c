@@ -18,8 +18,8 @@
 #define BALL_WIDTH 8.0f 
 #define BALL_HEIGHT 8.0f
 
-#define BALL_EDGE_HIT_SPEED_GAIN 8.0f
-#define BALL_PADDLE_HIT_SPEED_GAIN 15.0
+#define BALL_EDGE_HIT_SPEED_GAIN 16.0f
+#define BALL_PADDLE_HIT_SPEED_GAIN 30.0
 
 #define BALL_MAX_START_STEEPNESS 0.6f
 
@@ -103,7 +103,7 @@ int main(void)
 
 	// Ball at center
 	ball.sprite = (struct rect){.color = {RGBA_WHITE}, 
-		.position = {window.width * 0.5f, window.height * 0.5f, 0.0f}, .scale = {BALL_WIDTH, BALL_HEIGHT, 0.0f},
+		.position = {window.width * 0.5f, window.height * 0.5f, 0.0f}, .scale = {BALL_WIDTH, BALL_HEIGHT, 0.0f}, .rotation = {0.0f, 0.0f, 1.0f},
 		.config = RECT_ORIGIN_CENTER};
 
 	renderer_init_rectangle(&player1.sprite);
@@ -128,9 +128,11 @@ int main(void)
 		renderer_draw_rectangle(&player2.sprite, &camera);
 		renderer_draw_rectangle(&ball.sprite, &camera);
 
-
 		if (game_sterted)
 		{
+			if (input_get_key(GLFW_KEY_SPACE))
+				delta_time = delta_time * 0.5f;
+
 			// Update players position
 
 			float player1_move_y = player1.direction * PADDLE_SPEED * delta_time;
@@ -146,6 +148,7 @@ int main(void)
 
 			ball.sprite.position.x += ball.direction.x * ball.speed * delta_time;
 			ball.sprite.position.y += ball.direction.y * ball.speed * delta_time;
+			ball.sprite.rotation_angle += ball.direction.x * ball.speed * delta_time;
 
 			physics_set_sprite_collider(&ball.collider, ball.sprite, ball.sprite.config);
 			physics_set_sprite_collider(&player1.collider, player1.sprite, player1.sprite.config);
@@ -185,7 +188,6 @@ int main(void)
 					ball_start_direction.y = rand_int(0, window.height) - ball.sprite.position.y;
 
 					vector2_normalize(&ball_start_direction);
-					logger_log_float(LOG, ball_start_direction.y);
 				}
 
 				ball.direction = ball_start_direction;

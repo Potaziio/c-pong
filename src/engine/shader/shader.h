@@ -19,7 +19,6 @@ struct shader
 
 	unsigned int id;
 
-	int was_initialized;
 	int was_freed;
 };
 

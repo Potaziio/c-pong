@@ -2,8 +2,6 @@
 
 int shader_load_and_compile(struct shader* shader, char* vertex_path, char* fragment_path)
 {
-	if (shader->was_initialized) return 0;
-
 	unsigned int vertex_id, fragment_id;
 
 	logger_log_string(LOG, "Loading and compiling shaders.\n");
@@ -72,7 +70,6 @@ int shader_load_and_compile(struct shader* shader, char* vertex_path, char* frag
 		return 0;
 	}
 
-	shader->was_initialized = 1;
 	shader->was_freed = 0;
 
 	glDeleteShader(vertex_id);
@@ -118,8 +115,6 @@ void shader_free_memory(struct shader* shader)
 void shader_use(struct shader* shader)
 {
 	if (shader->being_used) return;
-
-	logger_log_string(LOG, "Calling shader use\n");
 
 	glUseProgram(shader->id);
 	shader->being_used = 1;
